@@ -12,6 +12,7 @@ const Form = () => {
     tg.MainButton.setParams({
       text: 'Submit data'
     })
+    // eslint-disable-next-line
   }, [])
 
   React.useEffect(() => {
@@ -20,6 +21,7 @@ const Form = () => {
     } else {
       tg.MainButton.show()
     } 
+    // eslint-disable-next-line
   }, [street, country])
 
   const onChangeCountry = (e) => {
