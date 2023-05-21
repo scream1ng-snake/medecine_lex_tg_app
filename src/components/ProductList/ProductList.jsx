@@ -29,7 +29,35 @@ const ProductList = () => {
     setAddedItems
   ] = React.useState([]);
 
-  const { tg } = useTelega();
+  const { tg, queryId } = useTelega();
+
+
+  
+  const onSendData = React.useCallback(() => {
+    const data = {
+      queryId,
+      products: addedItems,
+      totalPrice: getTotalPrice(addedItems),
+    }
+    fetch('http://localhost:8000', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data)
+    })
+    // eslint-disable-next-line
+  }, [])
+
+  React.useEffect(() => {
+    tg.onEvent('mainButtonClicked', onSendData);
+    return () => {
+      tg.offEvent('mainButtonClicked', onSendData)
+    }
+    // eslint-disable-next-line
+  }, [])
+
+
 
   const onAdd = (product) => {
     const alreadyAdded = addedItems.find((item) => 
