@@ -28,7 +28,7 @@ const Form = () => {
 
   React.useEffect(() => {
     tg.MainButton.setParams({
-      text: 'Submit data'
+      text: 'Отправить данные'
     })
     // eslint-disable-next-line
   }, [])
@@ -56,18 +56,18 @@ const Form = () => {
 
   return (
     <div className="form">
-      <h3>Enter your dannye</h3>
+      <h3>Введите ваши данные</h3>
       <input 
         type="text" 
         className="input" 
-        placeholder="Country" 
+        placeholder="Страна" 
         value={country}
         onChange={onChangeCountry}
       />
       <input 
         type="text" 
         className="input" 
-        placeholder="Street" 
+        placeholder="Улица" 
         value={street}
         onChange={onChangeStreet}
       />
@@ -80,7 +80,7 @@ const Form = () => {
           Физ. лицо
         </option>
         <option value="legal">
-          Юра лицо
+          Юр. лицо
         </option>
       </select>
     </div>
