@@ -1,13 +1,9 @@
 import React from 'react';
-import Button from '../Button';
+import Button from '../Button/Button';
 import './Header.css';
 
 const Header = () => {
   const tg = window.Telegram.WebApp;
-  
-  React.useEffect(() => {
-    tg.ready()
-  }, [])
 
   function onClose() {
     tg.close();
