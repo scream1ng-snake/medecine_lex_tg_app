@@ -1,16 +1,18 @@
 import './App.css';
 import React from 'react';
 import Header from './components/Header/Header';
+import useTelega from './hooks/UseTelegram';
 
 function App() {
-  const tg = window.Telegram.WebApp;
+  const { tg, onToggleButton } = useTelega();
   
   React.useEffect(() => {
     tg.ready()
   }, [])
    return (
     <div className="App">
-      <Header />
+      <button onClick={onToggleButton}>toggle</button>
+      {/* <Header /> */}
     </div>
   );
 }
