@@ -1,10 +1,13 @@
 import './App.css';
 import React from 'react';
 import Header from './components/Header/Header';
+import ProductList from './components/ProductList/ProductList';
+import Form from './components/From/Form';
 import useTelega from './hooks/UseTelegram';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
-  const { tg, onToggleButton } = useTelega();
+  const { tg } = useTelega();
 
   React.useEffect(() => {
     tg.ready()
@@ -12,8 +15,11 @@ function App() {
   }, [])
    return (
     <div className="App">
-      <button onClick={onToggleButton}>toggle</button>
       <Header />
+      <Routes>
+        <Route index element={<ProductList />} />
+        <Route path={'/form'} element={<Form />} />
+      </Routes>
     </div>
   );
 }
