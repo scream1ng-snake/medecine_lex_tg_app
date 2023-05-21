@@ -19,9 +19,9 @@ const Form = () => {
   }, [])
 
   React.useEffect(() => {
-    tg.WebApp.onEvent('mainButtonClicked', onSendData);
+    tg?.WebApp?.onEvent('mainButtonClicked', onSendData);
     return () => {
-      tg.WebApp.offEvent('mainButtonClicked', onSendData)
+      tg?.WebApp?.offEvent('mainButtonClicked', onSendData)
     }
     // eslint-disable-next-line
   }, [])
