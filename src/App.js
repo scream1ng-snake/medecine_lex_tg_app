@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import Header from './components/Header/Header';
+// import Header from './components/Header/Header';
 import useTelega from './hooks/UseTelegram';
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
   
   React.useEffect(() => {
     tg.ready()
+    // eslint-disable-next-line
   }, [])
    return (
     <div className="App">
