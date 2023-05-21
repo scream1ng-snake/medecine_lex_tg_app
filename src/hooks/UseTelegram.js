@@ -15,6 +15,6 @@ export default function useTelega() {
     tg,
     onClose,
     onToggleButton,
-    user: tg.initDataunsafe?.user
+    user: tg.initDataUnsafe?.user
   }
 }
