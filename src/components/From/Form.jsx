@@ -8,6 +8,24 @@ const Form = () => {
   const [subject, setSubject] = React.useState('physical');
   const { tg } = useTelega();
 
+  const onSendData = React.useCallback(() => {
+    const data = {
+      country,
+      street,
+      subject
+    }
+    tg.sendData(JSON.stringify(data))
+    // eslint-disable-next-line
+  }, [])
+
+  React.useEffect(() => {
+    tg.WebApp.onEvent('mainButtonClicked', onSendData);
+    return () => {
+      tg.WebApp.offEvent('mainButtonClicked', onSendData)
+    }
+    // eslint-disable-next-line
+  }, [])
+
   React.useEffect(() => {
     tg.MainButton.setParams({
       text: 'Submit data'
