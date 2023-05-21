@@ -43,7 +43,7 @@ const ProductList = () => {
         item.id !== product.id
       )
     } else {
-      newItems = [...newItems, ...product]
+      newItems = [...newItems, product]
     }
 
     setAddedItems(newItems);
