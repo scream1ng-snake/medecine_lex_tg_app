@@ -16,7 +16,7 @@ const Form = () => {
     }
     tg.sendData(JSON.stringify(data))
     // eslint-disable-next-line
-  }, [])
+  }, [country, street, subject])
 
   React.useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData);
